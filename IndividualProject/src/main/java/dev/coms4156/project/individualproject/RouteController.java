@@ -162,8 +162,7 @@ public class RouteController {
         departmentMapping = IndividualProjectApplication.myFileDatabase.getDepartmentMapping();
         HashMap<String, Course> coursesMapping;
         coursesMapping = departmentMapping.get(deptCode).getCourseSelection();
-        //System.out.println(coursesMapping.keySet());
-
+        
         if (!coursesMapping.containsKey(Integer.toString(courseCode))) {
           return new ResponseEntity<>("Course Not Found", HttpStatus.NOT_FOUND);
         } else {
