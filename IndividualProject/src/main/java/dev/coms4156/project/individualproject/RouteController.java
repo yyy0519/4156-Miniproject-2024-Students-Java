@@ -100,6 +100,9 @@ public class RouteController {
    * Displays the details of the requested course to the user or displays the proper error
    * message in response to the request.
    *
+   * @param deptCode   A {@code String} representing the department the user wishes
+   *                   to find the course in.
+   *
    * @param courseCode A {@code int} representing the course the user wishes
    *                   to retrieve.
    *
@@ -140,8 +143,8 @@ public class RouteController {
     }
   }
   /**
-   * Displays the details of the requested course to the user or displays the proper error
-   * message in response to the request.
+   * Enroll a student to given departent and course, set the enrollednumber.
+   * 
    *
    * @param courseCode A {@code int} representing the course the user wishes
    *                   to retrieve.
@@ -162,7 +165,7 @@ public class RouteController {
         departmentMapping = IndividualProjectApplication.myFileDatabase.getDepartmentMapping();
         HashMap<String, Course> coursesMapping;
         coursesMapping = departmentMapping.get(deptCode).getCourseSelection();
-        
+
         if (!coursesMapping.containsKey(Integer.toString(courseCode))) {
           return new ResponseEntity<>("Course Not Found", HttpStatus.NOT_FOUND);
         } else {
